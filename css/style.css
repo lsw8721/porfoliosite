@@ -502,7 +502,7 @@ body {
   animation: lineIn 0.6s ease-out forwards; /* forwards로 고정 */
 }
 
-/* 1, 2, 3번째 줄 순차 지연 */
+/* 1, 2,번째 줄 애니메이션 */
 .brand .line:nth-of-type(1) {
   animation-delay: 0.15s;
 }
