@@ -1,0 +1,523 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Apple SD Gothic Neo,
+    Malgun Gothic, sans-serif;
+  color: #132;
+  background: #f3c400;
+}
+
+/* 배경(유튜브 재생) */
+.bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #0e6671;
+}
+.yt-wrap {
+  position: absolute;
+  left: -20%;
+  top: -20%;
+  right: -20%;
+  bottom: -20%;
+}
+.yt-wrap iframe {
+  width: 100%;
+  height: 100%;
+}
+.bg-dim {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+/* SNS */
+.sns-rail {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 5;
+}
+.sns {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  font-weight: 1200;
+  font-size: 30px;
+  text-decoration: none;
+  color: #1a1a1a;
+  background: #ffd64d;
+  border: 2px solid rgba(0, 0, 0, 0.45);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+.sns:hover {
+  transform: translateY(-1px);
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 32px 24px;
+  position: relative; /* 배경 컨테이너 역할 */
+}
+.hero-inner {
+  width: 96vw;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* 좌측 카드 */
+.left-card {
+  position: fixed;
+  left: 24px;
+  top: 24px;
+  bottom: 24px;
+  width: 400px;
+  height: 610px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f1c40f;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  overflow: auto;
+}
+.left-card .kv {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 좌측 카드 내부 블록 */
+.left-card .about-photo {
+  background: #ffe58a;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 8px;
+}
+.left-card .about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+.intro {
+  background: #ffec99;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 14px;
+  height: 140px;
+}
+.intro strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+.intro p {
+  margin: 0;
+}
+.cta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+.btn {
+  display: block;
+  text-align: center;
+  background: #ffda6a;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 14px 12px;
+  font-weight: 800;
+  color: #111;
+  text-decoration: none;
+}
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+/* 중앙 브랜드 타이틀: 화면 정중앙 고정 */
+.hero h1.brand {
+  position: fixed;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+  font-family: "Soria", "Gmarket S", system-ui, -apple-system, "Segoe UI",
+    Roboto, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 4.3vw;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  white-space: normal;
+  text-align: center;
+  padding: 0 16px;
+}
+.kern-tight {
+  margin-left: -0.03em;
+}
+
+@media (min-width: 1200px) {
+  .hero h1.brand {
+    font-size: 120px;
+  }
+}
+@media (max-width: 420px) {
+  .hero h1.brand {
+    font-size: 36px;
+  }
+}
+
+/* 줄 애니메이션 유지 */
+.brand .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: lineIn 0.6s ease-out forwards;
+}
+.brand .line:nth-of-type(1) {
+  animation-delay: 0.15s;
+}
+.brand .line:nth-of-type(2) {
+  animation-delay: 0.65s;
+}
+@keyframes lineIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 시트 */
+.sheet-dim {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  display: none; /* pointer-events 미사용 */
+  transition: opacity 0.25s ease;
+  z-index: 20;
+}
+.sheet-dim.open {
+  display: block;
+  opacity: 1;
+}
+
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 95vh;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffec99;
+  border-radius: 16px 16px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.42s cubic-bezier(0.2, 0.7, 0, 1);
+  z-index: 30;
+}
+.sheet[aria-hidden="false"] {
+  transform: translateY(0);
+}
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #f3c400;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.sheet-head h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+.sheet-close {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.sheet-body {
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+  width: 96vw;
+  max-width: 1280px;
+  margin: 0 auto 24px;
+}
+
+/* 포트폴리오 */
+.pf-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.pf-card {
+  background: #ffe48a;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1 1 48%;
+  max-width: 48%;
+}
+@media (min-width: 1200px) {
+  .pf-card {
+    flex: 1 1 31%;
+    max-width: 31%;
+  }
+}
+@media (max-width: 560px) {
+  .pf-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* 썸네일 */
+.pf-card .thumb {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  display: block;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+}
+.pf-card .thumb img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pf-card .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+}
+.pf-card .title {
+  font-size: 16px;
+}
+.pf-card .view {
+  text-decoration: none;
+  font-weight: 800;
+  color: #111;
+  border-bottom: 1px solid #111;
+}
+
+/* =========================
+   PF Detail: 2:1 (flex)
+   ========================= */
+.sheet-detail .detail-grid {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.sheet-detail .detail-video {
+  flex: 2 1 0;
+}
+.sheet-detail .detail-meta {
+  flex: 1 1 0;
+  background: #ffe06b;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+}
+.sheet-detail .detail-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+.sheet-detail .detail-desc {
+  margin: 0;
+}
+
+/* 16:9 유틸 (iframe용) */
+.ratio-16x9 {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.ratio-16x9 iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .sheet-detail .detail-grid {
+    flex-direction: column;
+  }
+}
+
+/* 자기소개 */
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.about-photo {
+  width: 60%;
+}
+.about-text {
+  width: 38%;
+}
+.about-video {
+  width: 100%;
+}
+.about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.about-text h3,
+.about-video h3 {
+  margin: 0 0 8px;
+}
+
+@media (max-width: 980px) {
+  .about-photo,
+  .about-text {
+    width: 100%;
+  }
+}
+/* 푸터 */
+.site-footer {
+  position: fixed;
+  left: 24px;
+  bottom: 16px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* 반응형 */
+@media (max-width: 980px) {
+  .hero-inner {
+    flex-direction: column;
+  }
+  .brand {
+    white-space: normal;
+  }
+}
+
+/* 폰트 */
+@font-face {
+  font-family: "Gmarket S";
+  src: url("../font/GmarketSansTTFMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+html,
+body {
+  font-family: "Gmarket S", "Apple SD Gothic Neo", "Malgun Gothic", system-ui,
+    -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: "Soria";
+  src: url("../font/soria-font.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* 중앙 PORTFOLIO 전용 폰트 적용 */
+.hero .brand {
+  font-family: "Soria", "Gmarket S", system-ui, -apple-system, "Segoe UI",
+    Roboto, Arial, sans-serif;
+  font-weight: 800; /* 시각 균형 위해 유지 */
+}
+
+/* 줄 기본 상태 */
+.brand .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: lineIn 0.6s ease-out forwards; /* forwards로 고정 */
+}
+
+/* 1, 2, 3번째 줄 순차 지연 */
+.brand .line:nth-of-type(1) {
+  animation-delay: 0.15s;
+}
+.brand .line:nth-of-type(2) {
+  animation-delay: 0.65s;
+}
+
+/* 모션 */
+@keyframes lineIn {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
